@@ -1,0 +1,51 @@
+
+        <?php
+            include 'include/header.inc.php';
+            //include 'include/tab.inc.php';
+        ?>
+<hr/>
+        
+        <ul class="inner-tab">
+            <a href="#"><li>Buy/Rent</li></a>
+            <a href="#"><li>Sell</li></a>
+            <a href="#"><li>Rent</li></a>
+            <a href="#"><li>Other Services</li></a>
+            <a href="#"><li>Negotiation</li></a>
+            <a href="#"><li class="selected-top">Reverse Auction</li></a>
+        </ul>
+        <br><br>
+        <div class="container-fluid tabs">
+              <div class="mobile-tabs" id="action-tabs">
+			        TAKE ACTION
+              </div>
+             <div class="property-tabs" id="property-tabs">
+			        PROPERTIES
+             </div>
+         </div>
+        <div class="bottom-border"></div>
+         <div class="container-fluid wrapper sp-wrapper">
+             <h4><u>KINDLY ANSWER THE BELOW QUESTIONS</u></h4>
+             <div class="questions">
+                <div class="que">
+                    <div class="que-lt"><b>Q.</b> Reverse Auction is a paid service, do you want to proceed?</div>
+                    <div class="que-rt"><div class="proceed-btn">Proceed <img src="img/arrow.png" /></div></div>
+                </div>
+                 <div class="que">
+                    <div class="que-lt"><b>Q.</b> Is your loan already approved? If Yes kindly upload the scanned copy of sanction letter.</div>
+                    <div class="que-rt">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="browse-btn">
+                                Browse <img src="img/browse.png" /><input type="file" name="upload"/>
+                            </div>
+                        </form>
+                    </div>
+                 </div>
+                 <div class="calander">
+                    <div class="cal-lt">Kindly provide the date and time to schedule BDF RM visit  to further understand requirements.<br> This would help in setting up appropriate reverse auction.</div>
+                    <div class="cal-rt"></div>
+                </div>
+             </div>
+        </div>
+        <?php
+            include 'include/footer.inc.php';
+        ?>

@@ -1,0 +1,76 @@
+
+phonecatControllers.controller('projects _rent', ['$scope', 'TemplateService', 'NavigationService', '$http',
+
+  function ($scope, TemplateService, NavigationService, $http) {
+        $scope.template = TemplateService;
+        $scope.menutitle = NavigationService.makeactive("Rent","navigation_projects");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.content = "views/rent.html";
+        $scope.navigation = NavigationService.getnav("navigation_projects");
+              $scope.$on('$includeContentLoaded', function(event) {
+        //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
+            onstart();
+        });
+
+  }]);
+
+phonecatControllers.controller('projects_negotiation', ['$scope', 'TemplateService', 'NavigationService', '$http',
+
+  function ($scope, TemplateService, NavigationService, $http) {
+        $scope.template = TemplateService;
+        $scope.menutitle = NavigationService.makeactive("Negotation","navigation_projects");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.content = "views/negotiation.html";
+        $scope.navigation = NavigationService.getnav("navigation_projects");
+  }]);
+phonecatControllers.controller('projects_reverse_auction', ['$scope', 'TemplateService', 'NavigationService', '$http',
+
+  function ($scope, TemplateService, NavigationService, $http) {
+        $scope.template = TemplateService;
+        $scope.menutitle = NavigationService.makeactive("Reverse Auction","navigation_projects");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.content = "views/reverse_auction.html";
+        $scope.navigation = NavigationService.getnav("navigation_projects");
+  }]);
+phonecatControllers.controller('projects_sell', ['$scope', 'TemplateService', 'NavigationService', '$http',
+
+  function ($scope, TemplateService, NavigationService, $http) {
+        $scope.template = TemplateService;
+        $scope.menutitle = NavigationService.makeactive("Sell","navigation_projects");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.content = "views/sell.html";
+        $scope.navigation = NavigationService.getnav("navigation_projects");
+                $scope.$on('$includeContentLoaded', function(event) {
+        //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
+            onstart();
+        });
+
+      
+  }]);
+phonecatControllers.controller('projects_property', ['$scope', 'TemplateService', 'NavigationService', '$http',
+
+  function ($scope, TemplateService, NavigationService, $http) {
+        $scope.template = TemplateService;
+        $scope.menutitle = NavigationService.makeactive("Buy/Rent","navigation_projects");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.content = "views/projects.html";
+        $scope.navigation = NavigationService.getnav("navigation_projects");
+      
+        $scope.$on('$includeContentLoaded', function(event) {
+        //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
+            onstart();
+        });
+      
+  }]);
+
+phonecatControllers.controller('projects_services', ['$scope', 'TemplateService', 'NavigationService', '$http',
+
+  function ($scope, TemplateService, NavigationService, $http) {
+        $scope.template = TemplateService;
+        $scope.menutitle = NavigationService.makeactive("Other Services","navigation_projects");
+        TemplateService.title = $scope.menutitle;
+        TemplateService.content = "views/services.html";
+        $scope.navigation = NavigationService.getnav("navigation_projects");
+      
+  }]);
+

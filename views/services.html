@@ -1,0 +1,204 @@
+
+         <div class="container-fluid wrapper">
+            <div class="full">
+                <div class="left-nego">
+                   <div class="left-title">
+                        SERVICE TYPE
+                   </div>
+                    <div class="left-nav center adj">
+                        <ul>
+                            <a href="#"><li>Service 01</li></a>
+                            <a href="#"><li class="selected">Service 02</li></a>
+                            <a href="#"><li>Service 03</li></a>
+                            <a href="#"><li>Service 04</li></a>
+                            <a href="#"><li>Service 05</li></a>
+                        </ul>
+                    </div>
+                    <div class="share">
+                        <strong>Share On: </strong>
+                        <a href="#"><img src="img/share1.png" /></a>
+                        <a href="#"><img src="img/share2.png" /></a>
+                        <a href="#"><img src="img/share3.png" /></a>     
+                    </div>
+                </div>
+                <div class="right-nego">
+                   <div class="right-banner">
+                        DETAILS OF SERVICE PROVIDER IN YOUR AREA BASIS CURRENT ADDRESS AND PROPERTY LISTED
+                   </div>
+                    <div class="check">
+                        <div class="dropdown drop">
+                            <button class="btn dropdown-toggle drop-btn btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                Area Serviced
+                            <span class="caret caret-right"></span>
+                            </button>
+                            <ul class="dropdown-menu drop-menu drop-adj" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Lorum Lpsum</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown drop">
+                            <button class="btn dropdown-toggle drop-btn btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Days Working
+                            <span class="caret caret-right"></span>
+                            </button>
+                            <ul class="dropdown-menu drop-menu drop-adj" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Lorum Lpsum</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown drop">
+                            <button class="btn dropdown-toggle drop-btn btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Services Offered
+                            <span class="caret caret-right"></span>
+                            </button>
+                            <ul class="dropdown-menu drop-menu drop-adj" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Vastu</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Plumbing</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Interior Decorator</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Electrician</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Architect</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Shifting Services</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Fitting Services</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Legal Services</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown drop">
+                              <button class="btn dropdown-toggle drop-btn btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                Service Provider
+                                <span class="caret caret-right"></span>
+                              </button>
+                              <ul class="dropdown-menu drop-menu drop-adj" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Lorum Lpsum</a></li>
+                              </ul>
+                            </div>
+                    </div>
+                    <div class="check-range">
+                        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+                            <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+                            <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+                            <link rel="stylesheet" href="/resources/demos/style.css">
+                            <script>
+                                $(function () {
+                                    $("#slider-range").slider({
+                                        range: true,
+                                        min: 100000,
+                                        max: 5000000,
+                                        values: [75, 300],
+                                        slide: function (event, ui) {
+                                            $("#amount-lt").val("Rs." + ui.values[0]);
+                                            $("#amount-rt").val("Rs." + ui.values[1]);
+                                        }
+                                    });
+                                    $("#amount-lt").val("Rs. " + $("#slider-range").slider("values", 0));
+                                    $("#amount-rt").val("Rs. " + $("#slider-range").slider("values", 1));
+                                });
+                            </script>
+                            <input type="text" id="amount-lt" readonly><div id="slider-range"></div>
+                            <input type="text" id="amount-rt" readonly>
+                    </div>
+                    <div class="property-details">
+                        <table class="table table-bordered">
+                            <thead>
+                                    <tr>
+                                        <th>Service Provider Name <img src="img/th1.png" /></th>
+                                        <th>Contact <img src="img/th2.png" /></th>
+                                        <th>Area Serviced <img src="img/th3.png" /></th>
+                                        <th>Days Working <img src="img/th4.png" /></th>
+                                        <th>Rates <img src="img/th5.png" /></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Raheja Builders</td>
+                                    <td>9320076531</td>
+                                    <td>Bandra, Andheri</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs. 1.2 crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Raheja Builders</td>
+                                    <td>9320076531</td>
+                                    <td>Bandra, Andheri</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs. 1.2 crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Raheja Builders</td>
+                                    <td>9320076531</td>
+                                    <td>Bandra, Andheri</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs. 1.2 crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Raheja Builders</td>
+                                    <td>9320076531</td>
+                                    <td>Bandra, Andheri</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs. 1.2 crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Raheja Builders</td>
+                                    <td>9320076531</td>
+                                    <td>Bandra, Andheri</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs. 1.2 crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Raheja Builders</td>
+                                    <td>9320076531</td>
+                                    <td>Bandra, Andheri</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs. 1.2 crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Raheja Builders</td>
+                                    <td>9320076531</td>
+                                    <td>Bandra, Andheri</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs. 1.2 crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Raheja Builders</td>
+                                    <td>9320076531</td>
+                                    <td>Bandra, Andheri</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs. 1.2 crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Raheja Builders</td>
+                                    <td>9320076531</td>
+                                    <td>Bandra, Andheri</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs. 1.2 crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav>
+                      <ul class="pagination">
+                        <a href="" aria-label="Previous">
+                            <li>
+                            <span aria-hidden="true">PREVIOUS</span>
+                        </li></a>
+                        <a><li class="page-selected">1</li></a>
+                        <a><li>2</li></a>
+                        <a><li>3</li></a>
+                        <a><li>4</li></a>
+                        <a><li>5</li></a>
+                           <a href="#" aria-label="Next">
+                        <li>
+                            <span aria-hidden="true">NEXT</span>
+                        </li></a>
+                      </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
