@@ -11,6 +11,7 @@ phonecatControllers.controller('home',
         TemplateService.title = $scope.menutitle;
         TemplateService.content = "views/home.html";
         TemplateService.menu = "";
+    $scope.testimonial = [];
     
 //        At start call getsearchbackground for backgounr image
         var backgroundimage = function (data, status){
@@ -29,13 +30,28 @@ phonecatControllers.controller('home',
     
     
     var slidersuccess = function (data, status){
-        console.log("slider images");
-            console.log(data);
+//        console.log("slider images");
+//            console.log(data);
         $scope.slider=data;
+        for(var i = 0 ; i < $scope.slider.length ; i++)
+        {
+            $scope.slider[i].activeid = i;
+        }
+        $scope.slider[0].active = "active";
     };
          
+    var testimonialsuccess = function (data, status) {
+        console.log(data);
+        $scope.testimonial = data;
+    }    
+    var getvideosuccess = function (data, status) {
+        console.log(data);
+        $scope.video = data;
+    }
            
      NavigationService.getsliderimage().success(slidersuccess);
+     NavigationService.gettestimonial().success(testimonialsuccess);
+     NavigationService.getvideo().success(getvideosuccess);
     
     });
 

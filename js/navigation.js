@@ -1,5 +1,5 @@
-//var adminurl="http://wohlig.co.in/housing/index.php/json/";
-var adminurl="http://localhost/housing/index.php/json/";
+var adminurl="http://wohlig.co.in/housing/index.php/json/";
+//var adminurl="http://localhost/housing/index.php/json/";
 
 var navigationservice = angular.module('navigationservice', [])
 
@@ -176,6 +176,14 @@ var navigationservice = angular.module('navigationservice', [])
 
         getsliderimage: function () {
             return $http.get(adminurl+"getnewproperty",{});
+        },
+
+        gettestimonial: function () {
+            return $http.get(adminurl+"gettestimonial",{});
+        },
+
+        getvideo: function () {
+            return $http.get(adminurl+"getvideo",{});
         }
 
     }

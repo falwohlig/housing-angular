@@ -114,3 +114,10 @@ firstapp.config(['$routeProvider',
                 redirectTo: '/home'
             });  
 }]);
+
+firstapp.filter('imagepath', function () {
+    return function (input) {
+            return "http://wohlig.co.in/housing/uploads/" + input;
+//        
+    };
+});
