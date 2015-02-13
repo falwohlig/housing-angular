@@ -4,21 +4,21 @@ phonecatControllers.controller('home',
     function ($scope, $http, TemplateService, NavigationService) {
 
         $scope.demo = "hey";
-    
-        
+
+
         $scope.template = TemplateService;
-        $scope.menutitle = NavigationService.makeactive("Rent","navigation_residential");
+        $scope.menutitle = NavigationService.makeactive("Rent", "navigation_residential");
         TemplateService.title = $scope.menutitle;
         TemplateService.content = "views/home.html";
         TemplateService.menu = "";
-    $scope.testimonial = [];
-    
-//        At start call getsearchbackground for backgounr image
-        var backgroundimage = function (data, status){
+        $scope.testimonial = [];
+
+        //        At start call getsearchbackground for backgounr image
+        var backgroundimage = function (data, status) {
             console.log(data);
             $scope.banner = data;
             $scope.bannerimage = {
-                "background": 'url(img/'+data.text+') no-repeat',
+                "background": 'url(img/' + data.text + ') no-repeat',
                 "background-position": 'center',
                 "background-size": 'cover',
                 "height": '450px'
@@ -26,49 +26,47 @@ phonecatControllers.controller('home',
             console.log($scope.bannerimage);
         };
         NavigationService.getbannerbackground().success(backgroundimage);
-    
-    
-    
-    var slidersuccess = function (data, status){
-//        console.log("slider images");
-//            console.log(data);
-        $scope.slider=data;
-        for(var i = 0 ; i < $scope.slider.length ; i++)
-        {
-            $scope.slider[i].activeid = i;
+
+
+
+        var slidersuccess = function (data, status) {
+            //        console.log("slider images");
+            //            console.log(data);
+            $scope.slider = data;
+            for (var i = 0; i < $scope.slider.length; i++) {
+                $scope.slider[i].activeid = i;
+            }
+            $scope.slider[0].active = "active";
+        };
+
+        var testimonialsuccess = function (data, status) {
+            console.log(data);
+            $scope.testimonial = data;
+            //        for(var i = 0 ; i < $scope.testimonial.length ; i++)
+            //        {
+            //            $scope.testimonial[i].style = {
+            //                "background": 'url(img/'+$scope.testimonial[i].image+') no-repeat',
+            //                "background-position": 'center',
+            //                "background-size": 'cover'
+            //            };
+            //        }
         }
-        $scope.slider[0].active = "active";
-    };
-         
-    var testimonialsuccess = function (data, status) {
-        console.log(data);
-        $scope.testimonial = data;
-//        for(var i = 0 ; i < $scope.testimonial.length ; i++)
-//        {
-//            $scope.testimonial[i].style = {
-//                "background": 'url(img/'+$scope.testimonial[i].image+') no-repeat',
-//                "background-position": 'center',
-//                "background-size": 'cover'
-//            };
-//        }
-    }    
-    var getvideosuccess = function (data, status) {
-        console.log(data);
-        $scope.video = data;
-        for(var i = 0 ; i < $scope.video.length ; i++)
-            {
+        var getvideosuccess = function (data, status) {
+            console.log(data);
+            $scope.video = data;
+            for (var i = 0; i < $scope.video.length; i++) {
                 $scope.video[i].style = {
-                    "background": 'url(img/'+$scope.video[i].image+') no-repeat',
+                    "background": 'url(img/' + $scope.video[i].image + ') no-repeat',
                     "background-position": 'center',
                     "background-size": 'cover'
                 };
+            }
         }
-    }
-           
-     NavigationService.getsliderimage().success(slidersuccess);
-     NavigationService.gettestimonial().success(testimonialsuccess);
-     NavigationService.getvideo().success(getvideosuccess);
-    
+
+        NavigationService.getsliderimage().success(slidersuccess);
+        NavigationService.gettestimonial().success(testimonialsuccess);
+        NavigationService.getvideo().success(getvideosuccess);
+
     });
 
 phonecatControllers.controller('residential_rent', ['$scope', 'TemplateService', 'NavigationService', '$http',
@@ -141,9 +139,13 @@ phonecatControllers.controller('residential_property', ['$scope', 'TemplateServi
 
   }]);
 
-phonecatControllers.controller('residential_services', ['$scope', 'TemplateService', 'NavigationService', '$http',
 
-  function ($scope, TemplateService, NavigationService, $http) {
+
+
+
+phonecatControllers.controller('residential_services',
+
+    function ($scope, TemplateService, NavigationService, $http) {
         $scope.resiad = "active";
         $scope.template = TemplateService;
         $scope.menutitle = NavigationService.makeactive("Other Services", "navigation_residential");
@@ -151,7 +153,64 @@ phonecatControllers.controller('residential_services', ['$scope', 'TemplateServi
         TemplateService.content = "views/services.html";
         $scope.navigation = NavigationService.getnav("navigation_residential");
 
-  }]);
+
+        var testservice = function (data, status) {
+
+
+            console.log("get service data");
+            console.log(data);
+            $scope.service1 = data;
+            $scope.service1[0].active = "selected";
+
+        }
+
+
+        var testarea = function (data, status) {
+
+
+            console.log("get area data");
+            console.log(data);
+            $scope.area1 = data;
+
+        }
+
+        var testdays = function (data, status) {
+
+
+            console.log("get area data");
+            console.log(data);
+            $scope.days = data;
+
+        }
+
+
+
+
+        var testsingleservice = function (data, status) {
+            
+            $scope.singleService = data.queryresult;
+
+        }
+
+        $scope.changeService = function (serve) {
+            
+            for(var i = 0 ; i < $scope.service1.length ; i++)
+            {
+                $scope.service1[i].active = "";
+            }
+            serve.active = "selected";
+            NavigationService.getsingleservice(serve.id).success(testsingleservice);
+        }
+
+
+        NavigationService.getservice().success(testservice);
+        NavigationService.getarea().success(testarea);
+        NavigationService.getdays().success(testdays);
+        
+            NavigationService.getsingleservice(1).success(testsingleservice)
+    });
+
+
 
 phonecatControllers.controller('commercial_rent', ['$scope', 'TemplateService', 'NavigationService', '$http',
 

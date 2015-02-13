@@ -1,4 +1,4 @@
-var adminurl="http://wohlig.co.in/housing/index.php/json/";
+var adminurl="http://bdp.epuratech.com/admin/index.php/json/";
 //var adminurl="http://localhost/housing/index.php/json/";
 
 var navigationservice = angular.module('navigationservice', [])
@@ -36,7 +36,7 @@ var navigationservice = angular.module('navigationservice', [])
             classis: "",
             link: "#/residential_reverse_auction",
             subnav: []
-    },
+    }
 ];
 
     var navigation_commercial = [{
@@ -69,7 +69,7 @@ var navigationservice = angular.module('navigationservice', [])
             classis: "",
             link: "#/commercial_reverse_auction",
             subnav: []
-    },
+    }
 ];
 
     var navigation_projects = [{
@@ -102,7 +102,7 @@ var navigationservice = angular.module('navigationservice', [])
             classis: "",
             link: "#/projects_reverse_auction",
             subnav: []
-    },
+    }
 ];
     
     var navigation_plots = [{
@@ -135,7 +135,7 @@ var navigationservice = angular.module('navigationservice', [])
             classis: "",
             link: "#/plots_reverse_auction",
             subnav: []
-    },
+    }
 ];
     
     
@@ -184,7 +184,21 @@ var navigationservice = angular.module('navigationservice', [])
 
         getvideo: function () {
             return $http.get(adminurl+"getvideo",{});
-        }
+        },
+        getservice: function () {
+            return $http.get(adminurl+"getallservicetype",{});
+        },
+        
+        getarea: function () {
+            return $http.get(adminurl+"getallarea",{});
+        },
+        getdays: function () {
+            return $http.get(adminurl+"getallweekday",{});
+        },
+                getsingleservice: function (serviceId) {
+            return $http.get(adminurl+"getserviceproviderbytype",{ params: {servicetype:serviceId}});
+        },
+
 
     }
 });
