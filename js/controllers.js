@@ -43,10 +43,26 @@ phonecatControllers.controller('home',
     var testimonialsuccess = function (data, status) {
         console.log(data);
         $scope.testimonial = data;
+//        for(var i = 0 ; i < $scope.testimonial.length ; i++)
+//        {
+//            $scope.testimonial[i].style = {
+//                "background": 'url(img/'+$scope.testimonial[i].image+') no-repeat',
+//                "background-position": 'center',
+//                "background-size": 'cover'
+//            };
+//        }
     }    
     var getvideosuccess = function (data, status) {
         console.log(data);
         $scope.video = data;
+        for(var i = 0 ; i < $scope.video.length ; i++)
+            {
+                $scope.video[i].style = {
+                    "background": 'url(img/'+$scope.video[i].image+') no-repeat',
+                    "background-position": 'center',
+                    "background-size": 'cover'
+                };
+        }
     }
            
      NavigationService.getsliderimage().success(slidersuccess);
@@ -115,6 +131,7 @@ phonecatControllers.controller('residential_property', ['$scope', 'TemplateServi
         $scope.menutitle = NavigationService.makeactive("Buy/Rent", "navigation_residential");
         TemplateService.title = $scope.menutitle;
         TemplateService.content = "views/property.html";
+        TemplateService.menu = "views/menu.html";
         $scope.navigation = NavigationService.getnav("navigation_residential");
 
         $scope.$on('$includeContentLoaded', function (event) {
