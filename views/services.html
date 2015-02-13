@@ -50,7 +50,7 @@
                             <span class="caret caret-right"></span>
                             </button>
                             <ul class="dropdown-menu drop-menu drop-adj" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation" ng-repeat="area1 in area1"><a role="menuitem" tabindex="-1" href="#">{{area1.name}}</a></li>
+                            <li role="presentation" ng-repeat="area1 in area1"><a role="menuitem" tabindex="-1" ng-click="sortArea(area1.id)">{{area1.name}}</a></li>
                             </ul>
                         </div> 
                         <div class="dropdown drop">
@@ -59,9 +59,10 @@
                             <span class="caret caret-right"></span>
                             </button>
                             <ul class="dropdown-menu drop-menu drop-adj" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation" ng-repeat="days in days"><a role="menuitem" tabindex="-1" href="#">{{days.name}}</a></li>
+                            <li role="presentation" ng-repeat="days in days"><a role="menuitem" tabindex="-1" ng-click="sortDay(days.id)">{{days.name}}</a></li>
                             </ul>
                         </div>
+<!--
                         <div class="dropdown drop">
                             <button class="btn dropdown-toggle drop-btn btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                             Services Offered
@@ -78,6 +79,8 @@
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Legal Services</a></li>
                             </ul>
                         </div>
+-->
+<!--
                         <div class="dropdown drop">
                               <button class="btn dropdown-toggle drop-btn btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                                 Service Provider
@@ -87,6 +90,7 @@
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Lorum Lpsum</a></li>
                               </ul>
                             </div>
+-->
                     </div> 
                     <div class="check-range">
                         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -109,8 +113,7 @@
                                     $("#amount-rt").val("Rs. " + $("#slider-range").slider("values", 1));
                                 });
                             </script>
-                            <input type="text" id="amount-lt" readonly><div id="slider-range"></div>
-                            <input type="text" id="amount-rt" readonly>
+                            <input type="text" id="amount-rt" placeholder="Search..." ng-model="service.search">
                     </div>
                     <div class="property-details">
                         <table class="table table-bordered">
@@ -125,7 +128,7 @@
                                     </tr>
                                 </thead>
                             <tbody>
-                                <tr ng-repeat = "singleService in singleService">
+                                <tr ng-repeat = "singleService in singleService|filter:service.search">
                                     <td>{{singleService.name}}</td>
                                     <td>{{singleService.contact}}</td>
                                     <td>{{singleService.area}}</td>
@@ -196,25 +199,13 @@
                                     <td>Mon, Thurs, Fri</td>
                                     <td>Rs. 1.2 crores</td>
                                     <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
-                                </tr> -->
+                                </tr>   class="page-selected" -->
                             </tbody>
                         </table>
                     </div>
-                    <nav>
+                    <nav ng-show="page.status">
                       <ul class="pagination">
-                        <a href="" aria-label="Previous">
-                            <li>
-                            <span aria-hidden="true">PREVIOUS</span>
-                        </li></a>
-                        <a><li class="page-selected">1</li></a>
-                        <a><li>2</li></a>
-                        <a><li>3</li></a>
-                        <a><li>4</li></a>
-                        <a><li>5</li></a>
-                           <a href="#" aria-label="Next">
-                        <li>
-                            <span aria-hidden="true">NEXT</span>
-                        </li></a>
+                           <li ng-repeat="page in pageslink"><a ng-click="changepage(page)"><span>{{page}}</span></a></li>
                       </ul>
                     </nav>
                 </div>

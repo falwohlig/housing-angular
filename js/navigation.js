@@ -195,9 +195,13 @@ var navigationservice = angular.module('navigationservice', [])
         getdays: function () {
             return $http.get(adminurl+"getallweekday",{});
         },
-                getsingleservice: function (serviceId) {
-            return $http.get(adminurl+"getserviceproviderbytype",{ params: {servicetype:serviceId}});
+        getsingleservice: function (serviceId,pageno,day,area) {
+            return $http.get(adminurl+"getserviceproviderbytype",{ params: {servicetype:serviceId,pageno:pageno,area:area,day:day}});
         },
+        getservicebyarea: function(area){
+            return $http.get(adminurl+"",{ params: {}});
+    
+        }
 
 
     }

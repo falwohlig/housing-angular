@@ -152,8 +152,12 @@ phonecatControllers.controller('residential_services',
         TemplateService.title = $scope.menutitle;
         TemplateService.content = "views/services.html";
         $scope.navigation = NavigationService.getnav("navigation_residential");
-
-
+        
+     $scope.globalArea ="" ;
+     $scope.globalDay ="" ;
+     $scope.serviceid = 1;
+    $scope
+    
         var testservice = function (data, status) {
 
 
@@ -177,37 +181,81 @@ phonecatControllers.controller('residential_services',
         var testdays = function (data, status) {
 
 
-            console.log("get area data");
-            console.log(data);
-            $scope.days = data;
+                console.log("get area data");
+                console.log(data);
+                $scope.days = data;
 
-        }
-
-
-
+            }
+            //
+            //        var pageination = function(data,status)
+            //        {
+            ////            $scope.pages = [url:"",id:""];
+            //            
+            //            $scope.page = {};
+            //            $scope.page = data;
+            //            $scope.page.status = true;
+            //            $scope.page.lastpage=5;
+            //        }
+        $scope.changepage = function (id) {
+           $scope.pageno = id;
+        NavigationService.getsingleservice($scope.serviceid,$scope.pageno,$scope.globalDay,$scope.globalArea).success(testsingleservice);
+        };
 
         var testsingleservice = function (data, status) {
-            
+            $scope.page = data;
             $scope.singleService = data.queryresult;
+            console.log($scope.singleService);
+            $scope.pageslink = [];
+            $scope.page.lastpage = 5;
+            for (var i = 0; i < $scope.page.lastpage; i++) {
+                $scope.pageslink.push(i + 1);
+            }
+
+            console.log($scope.page);
+
+            if (data.lastpage > 0) {
+                $scope.page.status = "true";
+            }
 
         }
 
+      
+
+
         $scope.changeService = function (serve) {
-            
-            for(var i = 0 ; i < $scope.service1.length ; i++)
-            {
+            console.log(serve);
+            $scope.serviceid = serve.id;
+            for (var i = 0; i < $scope.service1.length; i++) {
                 $scope.service1[i].active = "";
             }
             serve.active = "selected";
-            NavigationService.getsingleservice(serve.id).success(testsingleservice);
+                NavigationService.getsingleservice($scope.serviceid,$scope.pageno,$scope.globalDay,$scope.globalArea).success(testsingleservice)
         }
+        
+        
+        
+        var sortAreaSuccess = function(data){
+            $scope.singleService = data.queryresult
+        }
+        
+        
+    
+        $scope.sortArea = function(id){
+    $scope.globalArea = id;       NavigationService.getsingleservice($scope.serviceid,$scope.pageno,$scope.globalDay,$scope.globalArea).success(testsingleservice)
+    }
 
 
+        $scope.sortDay = function(id){
+    $scope.globalDay = id;       NavigationService.getsingleservice($scope.serviceid,$scope.pageno,$scope.globalDay,$scope.globalArea).success(testsingleservice)
+    }
+
+        
         NavigationService.getservice().success(testservice);
         NavigationService.getarea().success(testarea);
         NavigationService.getdays().success(testdays);
+        //        NavigationService.getsingleservice().success(pageination)
         
-            NavigationService.getsingleservice(1).success(testsingleservice)
+        NavigationService.getsingleservice($scope.serviceid,$scope.pageno,$scope.globalDay,$scope.globalArea).success(testsingleservice);
     });
 
 
