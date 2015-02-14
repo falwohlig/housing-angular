@@ -7,11 +7,15 @@
                     <div class="left-heading"><b>BUY</b></div>
                     <div class="left-nav center left-adj">
                         <ul>
-                            <a href="#"><li>property 01</li></a>
-                            <a href="#"><li class="selected">property 02</li></a>
+                            
+                            
+                     <a ng-click=changeproperty(prop) ng-repeat="prop in property1"><li ng-class="prop.active"> {{prop.name}}</li></a>
+                            
+                           
+                        <!--    <a href="#"><li class="selected">property 02</li></a>
                             <a href="#"><li>property 03</li></a>
                             <a href="#"><li>property 04</li></a>
-                            <a href="#"><li>property 05</li></a>
+                            <a href="#"><li>property 05</li></a>-->
                         </ul>
                         <div class="left-heading"><b>RENT</b></div>
                     <div class="left-nav center left-adj">
@@ -67,40 +71,57 @@
                     <div class="property-details">
                         <h4>PROPERTY DETAILS</h4>
                         <table class="table">
+                           
+                           
+                           
+                           
+                     <!---      <tr ng-repeat = "singlesproperty in singlesproperty|filter:service.search">
+                                    <td>{{singleproperty.name}}</td>
+                                    <td>{{singleService.contact}}</td>
+                                    <td>{{singleService.area}}</td>
+                                    <td>Mon, Thurs, Fri</td>
+                                    <td>Rs.{{singleService.rate}} crores</td>
+                                    <td><button type="submit" class="btn btn-default btn-enquiry">SEND ENQUIRY</button></td>
+                                </tr>-->
+                           
+                           
+                           
+                           
                             <tbody>
-                            <tr>
-                                <td>Built up area : <span class="light">6500 sq.ft</span> </td>
-                                <td>Furnishing : <span class="light">6</span></td>
-                                <td>No. of lifts : <span class="light">2</span></td>
+                            <tr ng-repeat = "singlesprop in singlesproperty|filter:service.search">
+                               
+                                <td>{{singlesprop.builduparea}}</td>
+                                    <td>{{singlesprop.furnishing}}</td>
+                                    <td>No. of lifts</td>
+                        </tr>
+                            <tr ng-repeat = "singlesprop in singlesproperty|filter:service.search">
+                                <td>{{singlesprop.pricetrends}} </td>
+                                <td>{{singlesprop.locality}}</td>
+                                <td>Modular kitchen </td>
                             </tr>
-                            <tr>
-                                <td>Rent per month : <span class="light">Rs. 21,000</span> </td>
-                                <td>Locality / Suburb : <span class="light">Bandra</span></td>
-                                <td>Modular kitchen : <span class="light">Yes</span></td>
+                            <tr ng-repeat = "singlesprop in singlesproperty|filter:service.search">
+                                <td>{{singlesprop.carpetarea}} </td>
+                                <td>{{singlesprop.city}} </td>
+                                <td>Airports :</td>
                             </tr>
-                            <tr>
-                                <td>LCarpet area (in sq.ft) : <span class="light">3430 sq-ft</span></td>
-                                <td>City : <span class="light">Mumbai</span></td>
-                                <td>Airports : <span class="light">Lpsum</span></td>
+                            <tr ng-repeat = "singlesprop in singlesproperty|filter:service.search">
+                                <td> {{singlesprop.facing}} </td>
+                                <td>{{singlesprop.pincode}}  </td>
+                                <td>Train Stations   </td>
                             </tr>
-                            <tr>
-                                <td>Facing (Direction) : <span class="light">East</span></td>
-                                <td>Pin Code : <span class="light">400 031</span></td>
-                                <td>Train Stations : <span class="light">Lorem</span></td>
+                            <tr ng-repeat = "singlesprop in singlesproperty|filter:service.search">
+                                <td>Age of Property  </td>
+                                <td>{{singlesprop.propertytype}} </td>
+                                <td>Bus Stations  </td>
                             </tr>
-                            <tr>
-                                <td>Age of Property : <span class="light">2 years</span></td>
-                                <td>Property type : <span class="light">Villa</span></td>
-                                <td>Bus Stations : <span class="light">Lpsum</span></td>
-                            </tr>
-                            <tr>
-                                <td>Totle floors : <span class="light">2</span></td>
-                                <td>Lease type : <span class="light">Lpsum</span></td>
+                            <tr ng-repeat = "singlesprop in singlesproperty|filter:service.search">
+                                <td>Total floors </td>
+                                <td>{{singlesprop.leasetype}}  </td>
                                 <td></td>
                             </tr>
-                            <tr>
-                                <td>BHK : <span class="light">6</span> </td>
-                                <td>Bathrooms : <span class="light">2</span></td>
+                            <tr ng-repeat = "singlesprop in singlesproperty|filter:service.search">
+                                <td> {{singlesprop.bhk}} </td>
+                                <td>{{singlesprop.bathroom}}</td>
                                 <td></td>
                             </tr>
                                 </tbody>

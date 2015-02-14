@@ -196,13 +196,22 @@ var navigationservice = angular.module('navigationservice', [])
             return $http.get(adminurl+"getallweekday",{});
         },
         getsingleservice: function (serviceId,pageno,day,area) {
-            return $http.get(adminurl+"getserviceproviderbytype",{ params: {servicetype:serviceId,pageno:pageno,area:area,day:day}});
+            return $http.get(adminurl+"getserviceproviderbytype",{ params: {servicetype:serviceId}});
         },
         getservicebyarea: function(area){
             return $http.get(adminurl+"",{ params: {}});
-    
-        }
+        }, 
+        
+        getproperty: function () {
+            return $http.get(adminurl+"getallproperties",{});
+            
+        },
+        
+        
+        getsinglesproperty: function (propertyid) {
+            return $http.get(adminurl+"getpropertybyid",{params: {propertytype:propertyid}});
+        
 
-
+    }
     }
 });
