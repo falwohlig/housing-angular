@@ -206,12 +206,10 @@ var navigationservice = angular.module('navigationservice', [])
             return $http.get(adminurl+"getallproperties",{});
             
         },
-        
-        
+           
         getsinglesproperty: function (propertyid) {
-            return $http.get(adminurl+"getpropertybyid",{params: {propertytype:propertyid}});
+            return $http.get(adminurl+"getpropertybyid",{params: {id:propertyid}});
         
-
     }
     }
 });

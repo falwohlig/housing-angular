@@ -15,7 +15,6 @@ phonecatControllers.controller('home',
 
         //        At start call getsearchbackground for backgounr image
         var backgroundimage = function (data, status) {
-            console.log(data);
             $scope.banner = data;
             $scope.bannerimage = {
                 "background": 'url(img/' + data.text + ') no-repeat',
@@ -23,15 +22,12 @@ phonecatControllers.controller('home',
                 "background-size": 'cover',
                 "height": '450px'
             };
-            console.log($scope.bannerimage);
         };
         NavigationService.getbannerbackground().success(backgroundimage);
 
 
 
         var slidersuccess = function (data, status) {
-            //        console.log("slider images");
-            //            console.log(data);
             $scope.slider = data;
             for (var i = 0; i < $scope.slider.length; i++) {
                 $scope.slider[i].activeid = i;
@@ -40,7 +36,6 @@ phonecatControllers.controller('home',
         };
 
         var testimonialsuccess = function (data, status) {
-            console.log(data);
             $scope.testimonial = data;
             //        for(var i = 0 ; i < $scope.testimonial.length ; i++)
             //        {
@@ -52,7 +47,6 @@ phonecatControllers.controller('home',
             //        }
         }
         var getvideosuccess = function (data, status) {
-            console.log(data);
             $scope.video = data;
             for (var i = 0; i < $scope.video.length; i++) {
                 $scope.video[i].style = {
@@ -131,6 +125,7 @@ phonecatControllers.controller('residential_property', ['$scope', 'TemplateServi
         TemplateService.content = "views/property.html";
         TemplateService.menu = "views/menu.html";
         $scope.navigation = NavigationService.getnav("navigation_residential");
+        $scope.singlesproperty = [];
 
         $scope.$on('$includeContentLoaded', function (event) {
             //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
@@ -141,10 +136,9 @@ phonecatControllers.controller('residential_property', ['$scope', 'TemplateServi
         $scope.propertyid = 1;
 
         var testproperty = function (data, status) {
-
-
-            console.log("get property data");
+            console.log("all properties");
             console.log(data);
+
             $scope.property1 = data.queryresult;
             $scope.property1[0].active = "selected";
 
@@ -153,43 +147,27 @@ phonecatControllers.controller('residential_property', ['$scope', 'TemplateServi
 
         var testsingleproperty = function (data, status) {
             //$scope.page = data;
-            $scope.singlesproperty = data.queryresult;
-            console.log($scope.singlesproperty);
-            //   $scope.pageslink = [];
-            // $scope.page.lastpage = 5;
-            //for (var i = 0; i < $scope.page.lastpage; i++) {
-            //  $scope.pageslink.push(i + 1);
-            //  }
-
-            //console.log($scope.page);
-
-            //if (data.lastpage > 0) {
-            //  $scope.page.status = "true";
-            //}
-
+            console.log("data  cumming");
+            console.log(data);
+            $scope.singlesproperty = data;
+      
+          
         }
-
-
-
 
         $scope.changeproperty = function (prop) {
             console.log(prop);
             $scope.propertyid = prop.id;
+            $scope.propdata = prop;
+            
+            
             for (var i = 0; i < $scope.property1.length; i++) {
                 $scope.property1[i].active = "";
             }
             prop.active = "selected";
-            NavigationService.getsinglesproperty($scope.propertyid).success(testsingleproperty)
+       NavigationService.getsinglesproperty($scope.propertyid).success(testsingleproperty)
         }
 
 
-
-
-
-
-
-
-        //    scope.demo=("hello")
 
         NavigationService.getproperty().success(testproperty);
         NavigationService.getsinglesproperty($scope.propertyid).success(testsingleproperty);
