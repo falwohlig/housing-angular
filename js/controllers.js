@@ -1,10 +1,12 @@
 var phonecatControllers = angular.module('phonecatControllers', ['templateservicemod', 'navigationservice']);
 
 phonecatControllers.controller('home',
-    function ($scope, $http, TemplateService, NavigationService) {
+    function ($scope, $http, TemplateService, NavigationService,$location) {
 
         $scope.demo = "hey";
-
+        $scope.gotosearch = function () {
+            $location.path("search_property");
+        };
 
         $scope.template = TemplateService;
         $scope.menutitle = NavigationService.makeactive("Rent", "navigation_residential");
