@@ -881,7 +881,7 @@ div.browse-btn input {
 .blue-bottom{background-color: #12005E;color:#fff;font-size: 15px;}
 .red-bottom,.red-bottom:hover{background-color: #999;color: #fff;font-size: 15px;}
 .main{height: 650px; float: left;}
-.close-info{position: absolute;padding: 5px;margin:5px;background-color: #2a2a2a;color: #fff;font-size: 12px;right: -100%;transition: all .5s;cursor: pointer;}
+.close-info{position: absolute;padding: 5px;margin:5px;background-color: #2a2a2a;color: #fff;font-size: 12px;right: -100px;transition: all .5s;cursor: pointer;}
 
  /*Scroll Bar*/
 .properties{width: 25%;right:0;height: 650px;z-index: 5;border-left: 1px solid #999;position: absolute;background-color: #fff;float: left;}
@@ -890,7 +890,7 @@ div.browse-btn input {
 .properties ::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 4px rgba(0,0,,0.3);border-radius: 6px;}
 .properties ::-webkit-scrollbar-thumb {border-radius: 10px;background-color: #666;}
 
-.prop-info{width: 30%;height: 650px;float: left;padding: 10px;position: absolute;right: -100%; transition: all .5s;background-color:#fff;z-index: 1;box-shadow: -3px 0px 5px #B2B2B2;z-index: 1;}
+.prop-info{width: 30%;height: 650px;float: left;padding: 10px;position: absolute;right: -100px; transition: all .5s;background-color:#fff;z-index: 1;box-shadow: -3px 0px 5px #B2B2B2;z-index: 1;}
 .scrollbox {margin-top: 0px;padding-right: 10px;width: 30%;overflow-y: scroll;}
 .prop-info::-webkit-scrollbar {width: 6px;}
 .prop-info::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 4px rgba(0,0,,0.3);border-radius: 6px;}
@@ -1091,4 +1091,10 @@ div.browse-btn input {
 .angular-google-map-container {
     widows: 100%;
     height: 650px;
+}
+.close-info.comeout {
+    right: 737px;
+}
+.prop-info.comeout {
+     right: 336px; 
 }

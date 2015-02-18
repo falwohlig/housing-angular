@@ -386,22 +386,22 @@
            
             </div>
             <div class="main">
-                <div class="close-info" style="float: left;">Close</div>
+                <div class="close-info " style="float: left;" ng-class="shouldcomeout" ng-click="closecomeout();">Close</div>
             
-            <div class="prop-info scrollbox">
+            <div class="prop-info scrollbox" ng-class="shouldcomeout">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                       <!-- Wrapper for slides -->
                       <div class="carousel-inner" role="listbox">
                         <div class="item active">
                           <img src="img/prop-img.jpg" alt="...">
                           <div class="carousel-caption cc">
-                            <div class="slide-caption">Rs. 1.4 Crore <span class="small">(negotiable)</span></div>
+                            <div class="slide-caption">{{singlesproperty.property.price | currency}} crore <span class="small">(negotiable)</span></div>
                           </div>
                         </div>
                         <div class="item">
                           <img src="img/prop-img.jpg" alt="...">
                           <div class="carousel-caption cc">
-                            <div class="slide-caption">Rs. 1.4 Crore <span class="small">(negotiable)</span></div>
+                            <div class="slide-caption">{{singlesproperty.property.price|currency}}<span class="small">(negotiable)</span></div>
                           </div>
                         </div>
                       </div>
@@ -426,8 +426,8 @@
                 </div>
                 <div class="prop-addr">
                     <div class="address">
-                         <h3 id="details">2 BHK Apartment</h3>
-                        <p>32/A, Mhada Colony, Lokhandwala, Andheri (West).<br> Mumbai - 400034</p>
+                         <h3 id="details">{{singlesproperty.property.bhk}} Apartment</h3>
+                        <p>{{singlesproperty.property.address1}}<br>{{singlesproperty.property.address1}}</p>
                     </div>
                     <div class="rank">
                         <div class="value">
@@ -440,30 +440,31 @@
                         <table class="table prop-table">
                             <tbody>
                             <tr>
-                                <td>Built up area : <span class="light">1200 sq.ft</span> </td>
-                                <td>Price per sq.ft. : <span class="light">Rs. 172020/sq.ft.</span></td>
+                                <td>Built up area : <span class="light">{{singlesproperty.property.builduparea}} sq.ft</span> </td>
+                                <td>Price per sq.ft. : <span class="light"> {{singlesproperty.property.price/singlesproperty.property.builduparea}}sq.ft.</span></td>
                             </tr>
                             <tr>
                                 <td>No. of lifts : <span class="light">2</span> </td>
-                                <td>Furnishing : <span class="light">6</span></td>
+                                <td>Furnishing : <span class="light">{{singlesproperty.property.furnishing}}</span></td>
                             </tr>
                             <tr>
-                                <td>Bathrooms : <span class="light">4</span> </td>
+                                <td>Bathrooms : <span class="light">{{singlesproperty.property.bathroom}}</span> </td>
                                 <td>Age of property : <span class="light">2 years</span></td>
                             </tr>
                                 </tbody>
                         </table>
                     </div>
                     <div class="prop-amenity">
-                        <div class="head-under2" id="amenities">Society Facilities</div>
-                            <div class="prop-ame">
+                        <div class="head-under2" id="amenities">Society Facilities {{singleproperty.amenity}}</div>
+                            <div class="prop-ame" ng-repeat ="amenity in singleproperty.amenity">
                                 <div class="prop-ame-img">
                                     <img src="img/swim-red.png" />
                                 </div>
                                 <div class="ame-title">
-                                    Amenity 2
+                                    {{amenity.amenityname}}
                                 </div>
                             </div>
+<!--
                         <div class="prop-ame">
                                 <div class="prop-ame-img">
                                     <img src="img/swim-red.png" />
@@ -504,8 +505,9 @@
                                     Amenity 2
                                 </div>
                             </div>
-                    </div>
+                    </div> -->
                     <div class="prop-amenity">
+
                         <div class="head-under3" id="commute">Commute Overview</div><br>
                           <p>Good for  Train, Road, Bus connectivity</p>
                             <div class="panel panel-default new-panel">
@@ -700,38 +702,18 @@
                     </div>
 
                 <div class="property-list scrollbox">
-                    <div class="property-item">
+                    <div class="property-item" ng-click="showcomeout(property);" ng-repeat="property in properties|filter:searchfil" style="height: 131px;">
                         <div class="item-left"></div>
-                        <div class="item-right"><b>2 BHK, 900 sq.ft.</b><br>Mhada Colony, Andheri (West)<br><span class="font-ht">Rs. 1.4 Crore</span><br>Rs. 17.32k per sq.ft.</div>
+                        
+                        <div class="item-right" style="height: 110px;"><b> {{property.bhk}},{{property.builduparea}}</b><br>{{property.address2}} {{property.address2}}<br><span class="font-ht">{{property.price|currency}}</span><br>{{property.price/property.builduparea}} per sq.ft</div>
                     </div> 
-                    <div class="property-item">
-                        <div class="item-left"></div>
-                        <div class="item-right"><b>2 BHK, 900 sq.ft.</b><br>Mhada Colony, Andheri (West)<br><span class="font-ht">Rs. 1.4 Crore</span><br>Rs. 17.32k per sq.ft.</div>
-                    </div>
-                    <div class="property-item">
-                        <div class="item-left"></div>
-                        <div class="item-right"><b>2 BHK, 900 sq.ft.</b><br>Mhada Colony, Andheri (West)<br><span class="font-ht">Rs. 1.4 Crore</span><br>Rs. 17.32k per sq.ft.</div>
-                    </div>
-                    <div class="property-item">
-                        <div class="item-left"></div>
-                        <div class="item-right"><b>2 BHK, 900 sq.ft.</b><br>Mhada Colony, Andheri (West)<br><span class="font-ht">Rs. 1.4 Crore</span><br>Rs. 17.32k per sq.ft.</div>
-                    </div>
-                    <div class="property-item">
-                        <div class="item-left"></div>
-                        <div class="item-right"><b>2 BHK, 900 sq.ft.</b><br>Mhada Colony, Andheri (West)<br><span class="font-ht">Rs. 1.4 Crore</span><br>Rs. 17.32k per sq.ft.</div>
-                    </div>
-                    <div class="property-item">
-                        <div class="item-left"></div>
-                        <div class="item-right"><b>2 BHK, 900 sq.ft.</b><br>Mhada Colony, Andheri (West)<br><span class="font-ht">Rs. 1.4 Crore</span><br>Rs. 17.32k per sq.ft.</div>
-                    </div>
-                    <div class="property-item">
-                        <div class="item-left"></div>
-                        <div class="item-right"><b>2 BHK, 900 sq.ft.</b><br>Mhada Colony, Andheri (West)<br><span class="font-ht">Rs. 1.4 Crore</span><br>Rs. 17.32k per sq.ft.</div>
-                    </div>
+
                 </div>
             </div>
-                
+            </div>
         </div>
+                
+        
          
         
        
@@ -781,4 +763,4 @@
 
 
 
-</div>-->
+</div>

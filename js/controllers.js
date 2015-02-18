@@ -65,17 +65,24 @@ phonecatControllers.controller('home',
 phonecatControllers.controller('search_property', ['$scope', 'TemplateService', 'NavigationService', '$http',
 
   function ($scope, TemplateService, NavigationService, $http) {
-       
+
+        function testsingleproperty(data, status) {
+            //$scope.page = data;
+            console.log("data  cumming");
+            console.log(data);
+            $scope.singlesproperty = data;
+
+        }
         $scope.template = TemplateService;
-    //    $scope.menutitle = NavigationService.makeactive("Rent", "navigation_residential");
+        //    $scope.menutitle = NavigationService.makeactive("Rent", "navigation_residential");
         TemplateService.title = $scope.menutitle;
         TemplateService.foo = "";
         TemplateService.content = "views/search_property.html";
         TemplateService.footer = "";
 
-      
+
         TemplateService.menu = "";
-              $scope.form = {
+        $scope.form = {
             latlong: "19.075984,72.877656",
             type: "airport"
         };
@@ -94,16 +101,18 @@ phonecatControllers.controller('search_property', ['$scope', 'TemplateService', 
         $scope.getnewplaces = function (form) {
             NavigationService.getdetails(form.latlong, form.type).success(placescomplete);
         };
+        $scope.properties = [];
         var propertiessuccess = function (data) {
 
             data = data.queryresult;
             console.log(data);
+            $scope.properties = data;
             $scope.map = {
                 center: {
                     latitude: data[0].lat,
                     longitude: data[0].long
                 },
-                zoom: 17
+                zoom: 13
             };
 
             $scope.markers = NavigationService.formatmarkers(data);
@@ -117,10 +126,16 @@ phonecatControllers.controller('search_property', ['$scope', 'TemplateService', 
             $scope.form.latlong = data.latitude + "," + data.longitude;
             NavigationService.getdetails($scope.form.latlong, $scope.form.type).success(placescomplete);
         };
+        $scope.shouldcomeout = "";
+        $scope.closecomeout = function () {
+            $scope.shouldcomeout = "";
+        };
 
-
-
-
+        $scope.showcomeout = function (property) {
+            console.log(property.id);
+            NavigationService.getsinglesproperty(property.id).success(testsingleproperty);
+            $scope.shouldcomeout = "comeout";
+        };
 
 
 
@@ -143,7 +158,7 @@ phonecatControllers.controller('search_property', ['$scope', 'TemplateService', 
                 },
                 events: {
 
-                    center_changed: function() {
+                    center_changed: function () {
                         iconchange();
                     }
                 },
@@ -156,6 +171,9 @@ phonecatControllers.controller('search_property', ['$scope', 'TemplateService', 
 
         ];
 
+        $scope.searchfil = {
+            active: true
+        };
 
         var iconchange = function () {
             for (var i = 0; i < $scope.markers.length; i++) {
@@ -163,14 +181,16 @@ phonecatControllers.controller('search_property', ['$scope', 'TemplateService', 
                 var r = $scope.circles[0].radius / 1000;
                 if (d > r) {
                     $scope.markers[i].icon = 'img/circles.png';
+                    $scope.properties[i].active = false;
                     console.log(i + '=' + d);
                     console.log($scope.markers);
                 } else {
+                    $scope.properties[i].active = true;
                     $scope.markers[i].icon = 'img/circle.png';
                 }
             }
         };
-        
+
         var getDistance = function (lat1, long1, lat2, long2) {
             var R = 6378.137; // Earth’s mean radius in km
             var p1 = {
@@ -200,7 +220,7 @@ phonecatControllers.controller('search_property', ['$scope', 'TemplateService', 
 
 
 
-      $scope.$on('$includeContentLoaded', function (event) {
+        $scope.$on('$includeContentLoaded', function (event) {
             //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
             onstart();
         });
@@ -294,27 +314,20 @@ phonecatControllers.controller('residential_property', ['$scope', 'TemplateServi
 
         }
 
-
-        var testsingleproperty = function (data, status) {
-            //$scope.page = data;
-            console.log("data  cumming");
-            console.log(data);
-            $scope.singlesproperty = data;
-      
-          
-        }
+        $scope.singlesproperty = {}
 
         $scope.changeproperty = function (prop) {
+
             console.log(prop);
             $scope.propertyid = prop.id;
             $scope.propdata = prop;
-            
-            
+
+
             for (var i = 0; i < $scope.property1.length; i++) {
                 $scope.property1[i].active = "";
             }
             prop.active = "selected";
-       NavigationService.getsinglesproperty($scope.propertyid).success(testsingleproperty)
+            NavigationService.getsinglesproperty($scope.propertyid).success(testsingleproperty);
         }
 
 
