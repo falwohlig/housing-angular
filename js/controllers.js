@@ -1,7 +1,7 @@
 var phonecatControllers = angular.module('phonecatControllers', ['templateservicemod', 'navigationservice']);
 
 phonecatControllers.controller('home',
-    function ($scope, $http, TemplateService, NavigationService,$location) {
+    function ($scope, $http, TemplateService, NavigationService, $location) {
 
         $scope.demo = "hey";
         $scope.gotosearch = function () {
@@ -118,13 +118,17 @@ phonecatControllers.controller('search_property', ['$scope', 'TemplateService', 
             };
 
             $scope.markers = NavigationService.formatmarkers(data);
+
             iconchange();
 
         };
         NavigationService.getproperties().success(propertiessuccess);
 
+        $scope.markerclick = function (number) {
+            $scope.showcomeout($scope.properties[number]);
+        };
         $scope.console = function (data) {
-
+            console.log(data);
             $scope.form.latlong = data.latitude + "," + data.longitude;
             NavigationService.getdetails($scope.form.latlong, $scope.form.type).success(placescomplete);
         };
