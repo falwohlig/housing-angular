@@ -11,6 +11,14 @@ var firstapp = angular.module('firstapp', [
 firstapp.config(['$routeProvider',
                  function ($routeProvider) {
             $routeProvider.
+                        when('/login', {
+                templateUrl: 'views/template.html',
+                controller: 'login'
+            }).
+            when('/signup', {
+                templateUrl: 'views/template.html',
+                controller: 'signup'
+            }).
             when('/home', {
                 templateUrl: 'views/template.html',
                 controller: 'home'
