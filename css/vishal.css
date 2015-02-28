@@ -1,0 +1,27 @@
+footer {
+    margin-top: -21px;
+}
+hr {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    border-top: 1px solid #000 !important;
+}
+.tw-btn,
+.fb-btn {
+    width: 50%;
+    height: 60px;
+    float: left;
+    text-align: center;
+    padding: 15px;
+}
+.news-lt,
+.news-rt {
+    width: 50%;
+    float: left;
+    height: auto;
+    margin: 25px auto;
+}
+.news-data {
+    width: 100%;
+    height: auto;
+}
