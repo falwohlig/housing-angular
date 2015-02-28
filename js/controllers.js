@@ -260,6 +260,7 @@ phonecatControllers.controller('login', ['$scope', 'TemplateService', 'Navigatio
         $scope.plot = "active";
         $scope.template = TemplateService;
         TemplateService.title = $scope.menutitle;
+        TemplateService.menu = ""
         TemplateService.content = "views/login.html";
         
         $scope.$on('$includeContentLoaded', function (event) {
@@ -278,6 +279,63 @@ phonecatControllers.controller('login', ['$scope', 'TemplateService', 'Navigatio
         });
 
   }]);
+
+phonecatControllers.controller('news', ['$scope', 'TemplateService', 'NavigationService', '$http',
+
+  function ($scope, TemplateService, NavigationService, $http) {
+       
+        $scope.template = TemplateService;
+        TemplateService.title = $scope.menutitle;
+        TemplateService.menu = ""
+        TemplateService.content = "views/news.html";
+        
+        $scope.$on('$includeContentLoaded', function (event) {
+            //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
+            onstart();
+        });
+
+              $scope.$on('$includeContentLoaded', function (event) {
+            //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
+            a();
+        });
+      
+              $scope.$on('$includeContentLoaded', function (event) {
+            //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
+            moment();
+        });
+
+  }]);
+
+
+phonecatControllers.controller('about', ['$scope', 'TemplateService', 'NavigationService', '$http',
+
+  function ($scope, TemplateService, NavigationService, $http) {
+       
+        $scope.template = TemplateService;
+        TemplateService.title = $scope.menutitle;
+        TemplateService.menu = ""
+        TemplateService.content = "views/about.html";
+        
+        $scope.$on('$includeContentLoaded', function (event) {
+            //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
+            onstart();
+        });
+
+              $scope.$on('$includeContentLoaded', function (event) {
+            //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
+            a();
+        });
+      
+              $scope.$on('$includeContentLoaded', function (event) {
+            //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
+            moment();
+        });
+
+  }]);
+
+
+
+
 
 phonecatControllers.controller('signup', ['$scope', 'TemplateService', 'NavigationService', '$http',
 
@@ -298,8 +356,6 @@ phonecatControllers.controller('signup', ['$scope', 'TemplateService', 'Navigati
         });
 
   }]);
-
-
 
 phonecatControllers.controller('residential_negotiation', ['$scope', 'TemplateService', 'NavigationService', '$http',
 

@@ -15,10 +15,21 @@ firstapp.config(['$routeProvider',
                 templateUrl: 'views/template.html',
                 controller: 'login'
             }).
-            when('/signup', {
+            when('/login', {
                 templateUrl: 'views/template.html',
-                controller: 'signup'
+                controller: 'login'
             }).
+            
+            when('/news', {
+                templateUrl: 'views/template.html',
+                controller: 'news'
+            }).
+            
+            when('/about', {
+                templateUrl: 'views/template.html',
+                controller: 'about'
+            }).
+            
             when('/home', {
                 templateUrl: 'views/template.html',
                 controller: 'home'
