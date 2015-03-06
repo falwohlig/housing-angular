@@ -4,8 +4,8 @@ var firstapp = angular.module('firstapp', [
 'templateservicemod',
 'phonecatControllers',
 'navigationservice',
-'uiGmapgoogle-maps'
-
+'uiGmapgoogle-maps',
+'ngDialog'
 ]);
 
 firstapp.config(['$routeProvider',

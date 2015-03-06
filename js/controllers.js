@@ -1,7 +1,7 @@
-var phonecatControllers = angular.module('phonecatControllers', ['templateservicemod', 'navigationservice']);
+var phonecatControllers = angular.module('phonecatControllers', ['templateservicemod', 'navigationservice','ngDialog']);
 
 phonecatControllers.controller('home',
-    function ($scope, $http, TemplateService, NavigationService, $location) {
+    function ($scope, $http, TemplateService, NavigationService, $location,ngDialog) {
 
         $scope.demo = "hey";
         $scope.gotosearch = function () {
@@ -392,9 +392,9 @@ phonecatControllers.controller('residential_sell', ['$scope', 'TemplateService',
 
 
   }]);
-phonecatControllers.controller('residential_property', ['$scope', 'TemplateService', 'NavigationService', '$http',
+phonecatControllers.controller('residential_property', ['$scope', 'TemplateService', 'NavigationService', '$http','ngDialog',
 
-  function ($scope, TemplateService, NavigationService, $http) {
+  function ($scope, TemplateService, NavigationService, $http,ngDialog) {
         $scope.template = TemplateService;
         $scope.resiad = "active";
         $scope.menutitle = NavigationService.makeactive("Buy/Rent", "navigation_residential");
@@ -408,6 +408,13 @@ phonecatControllers.controller('residential_property', ['$scope', 'TemplateServi
             //    $('#output').append('<p>' + event.targetScope.name + ' include\'s content was loaded.</p>');
             onstart();
         });
+      
+      
+      
+			$scope.openPopup = function () {
+                console.log("ehy");
+				ngDialog.open({ template: 'firstDialogId.html', data: {foo: 'some data'} });
+			};
 
 
         $scope.propertyid = 1;
@@ -640,7 +647,7 @@ phonecatControllers.controller('commercial_property', ['$scope', 'TemplateServic
         $scope.template = TemplateService;
         $scope.menutitle = NavigationService.makeactive("Buy/Rent", "navigation_commercial");
         TemplateService.title = $scope.menutitle;
-        TemplateService.content = "views/property.html";
+        TemplateService.content = "views/commercialHome.html";
         $scope.navigation = NavigationService.getnav("navigation_commercial");
 
         $scope.$on('$includeContentLoaded', function (event) {
