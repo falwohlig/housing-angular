@@ -235,8 +235,6 @@ phonecatControllers.controller('search_property', ['$scope', 'TemplateService', 
 
 
 
-
-
 phonecatControllers.controller('residential_rent', ['$scope', 'TemplateService', 'NavigationService', '$http',
 
   function ($scope, TemplateService, NavigationService, $http) {
